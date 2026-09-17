@@ -1,5 +1,5 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":0,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
+#-- meta {"current":2,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
 #-- buffer 0
 #Main
 #-- buffer 1
@@ -14,8 +14,7 @@ sample :loop_amen
 #Testing --> not the final song
 
 live_loop :test do
-  use_synth :piano
-  
+    
   use_random_seed 30
   
   16.times do
