@@ -1,0 +1,28 @@
+#-- Sonic Pi Set v1
+#-- meta {"current":0,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
+#-- buffer 0
+#Main liedje
+#-- buffer 1
+#mogelijke synths en samples
+use_synth :piano
+sample :ambi_choir
+sample :drum_heavy_kick #also other drum samples
+use_synth :sc808_bassdrum
+use_synth :dark_ambience
+sample :loop_amen
+#-- buffer 2
+#Testen -> niet het uiteindelijke liedje, gewoon om te testen
+
+live_loop :test do
+  use_synth :piano
+  
+  use_random_seed 30
+  
+  16.times do
+    sample :loop_amen, onset: pick
+    sleep 0.125
+  end
+  
+  
+  
+end
