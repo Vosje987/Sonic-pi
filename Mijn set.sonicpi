@@ -1,5 +1,5 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":3,"zooms":[-4,-2,-1,-2,2,2,2,2,2,2]}
+#-- meta {"current":2,"zooms":[-4,-2,-1,-2,2,2,2,2,2,2]}
 #-- buffer 0
 #Main
 
@@ -14,10 +14,47 @@ use_synth :dark_ambience
 sample :loop_amen
 #-- buffer 2
 #Testing --> not the final song
+use_bpm 120
 
+live_loop :drums do
+  sample :drum_tom_mid_hard, amp: 0.8
+  sleep 1
+  sample :drum_snare_hard, amp: 0.8
+  sleep 1
+  sample :drum_tom_mid_hard, amp: 0.8
+  sleep 1
+  sample :drum_snare_hard, amp: 0.8
+  sleep 1
+end
 
+live_loop :hi_hat do
+  sample :hat_snap
+  sleep 0.25
+  sample :hat_zap
+  sleep 1
+end
+
+live_loop :bass do
+  use_synth :pluck
+  play 60
+  sleep 0.5
+  play 50
+  sleep 0.5
+  play 60
+  sleep 0.5
+end
+
+live_loop :melody do
+  use_synth :piano
+  if one_in(6)
+    use_transpose 2
+  else
+    use_transpose 0
+  end
+  play_pattern_timed [:c4, :e4, :f4, :g4, :f4, :e4, :f4, :g4, :f4, :e4, :f4], [0.25, 0.25, 0.25, 1.5, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], release: 0.8
+end
 #-- buffer 3
-#more testing (tutorial)
+#more testing (tutorial).
 use_bpm 120
 
 live_loop :drums do
@@ -39,17 +76,17 @@ live_loop :hihat do
 end
 
 live_loop :bass do
-  use_synth :fm
-  play :c2, attack: 0, release: 0.25
+  use_synth :bass_foundation
+  play (chord :C2, :major).choose, release: 0.125, cutoff: rrand(60, 110)
   sleep 0.25
-  play :c2, attack: 0, release: 0.3
-  sleep 2
-  play :e2
-  sleep 0.75
-  play :f2
-  sleep 1
 end
 
 live_loop :melody do
+  use_synth :piano
+  if one_in(6)
+    use_transpose 2
+  else
+    use_transpose 0
+  end
   play_pattern_timed [:c4, :e4, :f4, :g4, :f4, :e4, :f4, :g4, :f4, :e4, :f4], [0.25, 0.25, 0.25, 1.5, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], attack: 0, release: 0.2
 end
