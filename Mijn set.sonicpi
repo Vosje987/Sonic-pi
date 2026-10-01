@@ -1,10 +1,12 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":2,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
+#-- meta {"current":3,"zooms":[-4,-2,-1,-2,2,2,2,2,2,2]}
 #-- buffer 0
 #Main
+
 #-- buffer 1
 #Possible synths and samples
 use_synth :piano
+use_synth :pluck
 sample :ambi_choir
 sample :drum_heavy_kick #also other drum samples
 use_synth :sc808_bassdrum
@@ -13,15 +15,41 @@ sample :loop_amen
 #-- buffer 2
 #Testing --> not the final song
 
-live_loop :test do
-    
-  use_random_seed 30
-  
-  16.times do
-    sample :loop_amen, onset: pick
-    sleep 0.125
-  end
-  
-  
-  
+
+#-- buffer 3
+#more testing (tutorial)
+use_bpm 120
+
+live_loop :drums do
+  sample :drum_heavy_kick
+  sleep 1
+  sample :drum_snare_hard
+  sleep 1
+  sample :drum_heavy_kick
+  sleep 1
+  sample :drum_snare_hard
+  sleep 1
+end
+
+live_loop :hihat do
+  sample :drum_cymbal_closed
+  sleep 0.25
+  sample :drum_cymbal_pedal
+  sleep 1
+end
+
+live_loop :bass do
+  use_synth :fm
+  play :c2, attack: 0, release: 0.25
+  sleep 0.25
+  play :c2, attack: 0, release: 0.3
+  sleep 2
+  play :e2
+  sleep 0.75
+  play :f2
+  sleep 1
+end
+
+live_loop :melody do
+  play_pattern_timed [:c4, :e4, :f4, :g4, :f4, :e4, :f4, :g4, :f4, :e4, :f4], [0.25, 0.25, 0.25, 1.5, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], attack: 0, release: 0.2
 end
