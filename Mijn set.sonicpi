@@ -1,7 +1,61 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":2,"zooms":[-2,-2,-1,-1,2,2,2,2,2,2]}
+#-- meta {"current":0,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
 #-- buffer 0
-#Main
+#main
+
+use_synth :hollow
+with_fx :reverb, mix: 0.7 do
+  
+  play choose([:D4,:E4]), attack: 6, release: 6, amp: 1.4
+  sleep 8
+  
+  
+  play choose([:Fs4,:G4]), attack: 4, release: 5, amp: 1.4
+  sleep 8
+  
+  
+  play choose([:A4, :Cs5]), attack: 5, release: 5, amp: 1.4
+  sleep 9
+  
+end
+
+
+
+
+live_loop :drums do
+  sample :drum_tom_mid_hard, amp: 0.6
+  sleep 1
+  sample :drum_snare_hard, amp: 0.6
+  sleep 1
+  sample :drum_tom_mid_hard, amp: 0.6
+  sleep 1
+  sample :drum_snare_hard, amp: 0.6
+  sleep 1
+end
+
+live_loop :ambience_piano do
+  sample :ambi_piano, amp: 0.6
+  sleep 1
+end
+
+sleep 4
+live_loop :melody do
+  melody1
+end
+
+define :melody1 do
+  use_synth :piano
+  play 60, amp: 0.6
+  sleep 0.25
+  play 65, amp: 0.6
+  sleep 0.25
+  play 70, amp: 0.6
+  sleep 0.25
+  play 75, amp: 0.6
+  sleep 0.25
+end
+
+
 
 #-- buffer 1
 #Possible synths and samples
