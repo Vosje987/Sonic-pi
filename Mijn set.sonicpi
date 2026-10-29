@@ -1,6 +1,13 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":0,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
+#-- meta {"current":1,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
 #-- buffer 0
+use_synth :hollow
+
+3.times do
+  play :D3, attack: 2, release: 4, amp: 0.8
+  sleep 4
+end
+#-- buffer 1
 #main
 
 use_synth :hollow
@@ -42,9 +49,12 @@ end
 sleep 4
 live_loop :melody do
   3.times do
-    melody1
+    3.times do
+      melody1
+    end
+    sleep 1
   end
-  sleep 1
+  stop
 end
 
 define :melody1 do
@@ -59,20 +69,42 @@ define :melody1 do
   sleep 0.25
 end
 
+# Korte overgang
+sleep 2
 
 
-#-- buffer 1
-#Possible synths and samples
-use_synth :piano
-use_synth :pluck
-sample :ambi_choir
-sample :ambi_piano
-sample :drum_heavy_kick #also other drum samples
-use_synth :sc808_bassdrum
-use_synth :dark_ambience
-sample :loop_amen
+# Deel 2: nieuwe pianomelodie
+live_loop :melody2 do
+  play 62, release: 1, amp: 2
+  sleep 0.5
+  play 69, release: 1, amp: 2
+  sleep 0.5
+  play 66, release: 1.5, amp: 2
+  sleep 1
+  play 67, release: 1, amp: 2
+  sleep 0.5
+  play 69, release: 3, amp: 2
+  sleep 2
+end
 
 
+# Deel 3: donkere bas die later binnenkomt
+sleep 10
+# Nieuwe melodie
+sleep 8
+
+live_loop :melody3 do
+  use_synth :hollow
+  
+  play 73, amp: 1.2
+  sleep 0.5
+  play 69, amp: 1.2
+  sleep 0.5
+  play 71, amp: 1.2
+  sleep 0.5
+  play 66, amp: 1.2
+  sleep 0.5
+end
 
 #-- buffer 2
 #Testing --> not the final song
