@@ -141,3 +141,13 @@ live_loop :drums do
   sleep 1
 end
 
+sleep 16
+
+live_loop :bass do
+  use_synth :fm
+  play 36, release: 1.5, amp: 0.7
+  sleep 2
+  play 43, release: 1.5, amp: 0.7
+  sleep 2
+end
+
