@@ -1,12 +1,9 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":1,"zooms":[-4,-2,-1,2,2,2,2,2,2,2]}
+#-- meta {"current":1,"zooms":[-4,-3,-1,2,2,2,2,2,2,2]}
 #-- buffer 0
-use_synth :hollow
-
-3.times do
-  play :D3, attack: 2, release: 4, amp: 0.8
-  sleep 4
-end
+#To-DO
+#Laatste 3 melodies niet door elkaar --> een melodie stoppen of verwijderen
+#Nieuw liedje starten --> andere genre/stijl/sfeer
 #-- buffer 1
 #main
 
@@ -59,21 +56,21 @@ end
 
 define :melody1 do
   use_synth :piano
-  play 60, amp: 0.6
+  play 60, amp: 0.7
   sleep 0.25
-  play 65, amp: 0.6
+  play 65, amp: 0.7
   sleep 0.25
-  play 70, amp: 0.6
+  play 70, amp: 0.7
   sleep 0.25
-  play 75, amp: 0.6
+  play 75, amp: 0.7
   sleep 0.25
 end
 
 # Korte overgang
-sleep 2
+sleep 4
 
 
-# Deel 2: nieuwe pianomelodie
+# Deel 2: nieuwe melodie
 live_loop :melody2 do
   play 62, release: 1, amp: 2
   sleep 0.5
@@ -87,24 +84,20 @@ live_loop :melody2 do
   sleep 2
 end
 
-
-# Deel 3: donkere bas die later binnenkomt
-sleep 10
-# Nieuwe melodie
-sleep 8
+sleep 18
 
 live_loop :melody3 do
   use_synth :hollow
-  
-  play 73, amp: 1.2
+  play 73, amp: 1.3
   sleep 0.5
-  play 69, amp: 1.2
+  play 69, amp: 1.3
   sleep 0.5
-  play 71, amp: 1.2
+  play 71, amp: 1.3
   sleep 0.5
-  play 66, amp: 1.2
+  play 66, amp: 1.3
   sleep 0.5
 end
+
 
 #-- buffer 2
 #Testing --> not the final song
