@@ -101,3 +101,43 @@ end
 
 #-- buffer 2
 #main2
+use_bpm 85
+
+
+live_loop :melody do
+  use_synth :hollow
+  2.times do
+    play 60, release: 3, amp: 1.2
+    sleep 1
+    play 64, release: 3, amp: 1.2
+    sleep 1
+    play 67, release: 4, amp: 1.2
+    sleep 1
+    play 69, release: 3, amp: 1.2
+    sleep 1
+  end
+  2.times do
+    play 67, release: 2, amp: 1.2
+    sleep 0.5
+    play 71, release: 2, amp: 1.2
+    sleep 0.5
+    play 69, release: 3, amp: 1.2
+    sleep 1
+    play 64, release: 3, amp: 1.2
+    sleep 2
+  end
+end
+
+sleep 16
+
+live_loop :drums do
+  sample :bd_sone
+  sleep 1
+  sample :drum_cymbal_closed
+  sleep 1
+  sample :bd_sone
+  sleep 1
+  sample :drum_cymbal_closed
+  sleep 1
+end
+
