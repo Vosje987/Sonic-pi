@@ -151,3 +151,10 @@ live_loop :bass do
   sleep 2
 end
 
+sleep 4
+
+live_loop :snare do
+  sleep 2
+  sample :drum_snare_soft
+  sleep 2
+end
