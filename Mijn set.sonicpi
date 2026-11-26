@@ -1,9 +1,5 @@
 #-- Sonic Pi Set v1
-#-- meta {"current":2,"zooms":[-4,-3,-3,2,2,2,2,2,2,2]}
-#-- buffer 0
-#To-DO
-#Laatste 3 melodies niet door elkaar --> een melodie stoppen of verwijderen
-#Nieuw liedje starten --> andere genre/stijl/sfeer
+#-- meta {"current":2,"zooms":[-4,-3,-4,2,2,2,2,2,2,2]}
 #-- buffer 1
 #main
 
@@ -158,3 +154,5 @@ live_loop :snare do
   sample :drum_snare_soft
   sleep 2
 end
+
+
